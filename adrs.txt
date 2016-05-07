@@ -1,0 +1,33 @@
+B0:
+loadI 0 => r_SQRT2
+loadI 0 => r_SQRT
+loadI 0 => r_N
+readInt => r2
+i2i r2 => r_N
+loadI 0 => r2
+i2i r2 => r_SQRT
+loadI 1 => r2
+i2i r2 => r_SQRT2
+jumpI -> B1
+B1:
+i2i r_SQRT => r1
+i2i r_SQRT => r2
+mult r1 r2 => r1
+i2i r_N => r2
+sle r1 r2 => r1
+cbr r1 -> B2 B3
+B2:
+i2i r_SQRT => r1
+loadI 1 => r2
+add r1 r2 => r2
+i2i r2 => r_SQRT
+i2i r_SQRT => r2
+i2i r2 => r_SQRT2
+jumpI -> B1
+B3:
+i2i r_SQRT => r1
+loadI 1 => r2
+sub r1 r2 => r2
+i2i r2 => r_SQRT
+writeint r_SQRT
+exit
